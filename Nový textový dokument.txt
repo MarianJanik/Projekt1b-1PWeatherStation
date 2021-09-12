@@ -1,0 +1,15 @@
+průměrná teplota
+maximální teplota
+minimální teplota
+tlak
+rychlost větru
+vhkost
+srážky
+
+average temperature
+maximum temperature
+minimum temperature
+pressure
+wind speed
+humidity
+precipitation

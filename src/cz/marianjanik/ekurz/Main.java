@@ -12,7 +12,14 @@ public class Main {
 
         weather = WeatherForALongerPeriod.importFromTextFile(FILE1);
 
-        System.out.println(weather.getAllDayInfo());
+        System.out.println(weather.getStandardGreeting());
+        System.out.println(weather.getSize());
+        System.out.println(weather.getAverageTemperature());
+        System.out.println(weather.getMaxTemperature());
+        System.out.println(weather.getMinTemperature());
+
+        
+//        System.out.println(weather.getAllDayInfo());
 
 
     }

@@ -2,12 +2,17 @@ package cz.marianjanik.ekurz;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class WeatherForALongerPeriod {
     private ArrayList <WeatherOneDay> oneDayArrayList = new ArrayList<>();
+
+    DecimalFormat myFormat = new DecimalFormat("#.0");
 
     public void add(WeatherOneDay addDay){
         oneDayArrayList.add(addDay);
@@ -37,11 +42,52 @@ public class WeatherForALongerPeriod {
         }
     }
 
-    public String getAllDayInfo(){
+    public String getAverageTemperature() {
+        double sum = 0;
+        for (WeatherOneDay weatherOneDay:oneDayArrayList) {
+            sum+=weatherOneDay.getAverageTemperature();
+        }
+        double average = sum / oneDayArrayList.size();
+        String text = "Average temperature for the reporting period: " + myFormat.format(average) + "°C";
+        return text;
+    }
+
+    public String getMinTemperature() {
+        WeatherOneDay minimumDay = Collections.min(oneDayArrayList,new TemperatureMinComparator());
+        String text = "Minimum temperature for the reporting period: " + minimumDay.getDate() + " was "
+                + myFormat.format(minimumDay.getMinimumTemperature()) +"°C";
+        return text;
+    }
+
+    public String getMaxTemperature() {
+        WeatherOneDay maximumDay = Collections.min(oneDayArrayList,new TemperatureMaxComparator());
+        String text = "Maximum temperature for the reporting period: " + maximumDay.getDate() + " was "
+                + myFormat.format(maximumDay.getMaximumTemperature()) +"°C";
+        return text;
+    }
+
+    public String getAllDayInfo() {
         StringBuilder builder = new StringBuilder();
         for (WeatherOneDay day: oneDayArrayList) {
             builder.append(day.getAllInfo() + "\n");
         }
         return builder.toString();
     }
+
+
+
+    public String getStandardGreeting() {
+        return getLine() + "\nWelcome to the application for Meteorological Data Analysis.";
+    }
+
+    public String getSize() {
+        String text = getLine() + "\nWe have " + oneDayArrayList.size() + " meteorological daily records to analyze.";
+        return text;
+    }
+
+
+    private String getLine(){
+        return "\n-----------------------------------------------------------------------";
+    }
+
 }

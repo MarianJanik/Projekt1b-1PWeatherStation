@@ -68,4 +68,5 @@ public class WeatherOneDay {
                 + "\n- maximální teplota - " + this.humidity
                 + "\n- maximální teplota - " + this.precipitation;
     }
+
 }

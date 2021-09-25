@@ -5,13 +5,13 @@ import java.time.format.DateTimeFormatter;
 
 public class WeatherOneDay {
     LocalDate date;
-    double averageTemperature;
-    double maximumTemperature;
-    double minimumTemperature;
-    double pressure;
-    double windSpeed;
-    double humidity;
-    double precipitation;
+    private double averageTemperature;
+    private double maximumTemperature;
+    private double minimumTemperature;
+    private double pressure;
+    private double windSpeed;
+    private double humidity;
+    private double precipitation;
 
     public WeatherOneDay(LocalDate date, double averageTemperature, double maximumTemperature, double minimumTemperature,
                          double pressure, double windSpeed, double humidity, double precipitation) {
@@ -62,11 +62,10 @@ public class WeatherOneDay {
         return formatter.format(this.date)
                 + ":\n- průměrná teplota - " + this.averageTemperature
                 + "\n- maximální teplota - " + this.maximumTemperature
-                + "\n- maximální teplota - " + this.minimumTemperature
-                + "\n- maximální teplota - " + this.pressure
-                + "\n- maximální teplota - " + this.windSpeed
-                + "\n- maximální teplota - " + this.humidity
-                + "\n- maximální teplota - " + this.precipitation;
+                + "\n- minimální teplota - " + this.minimumTemperature
+                + "\n- atmosferický tlak - " + this.pressure
+                + "\n- rychlost větru  - " + this.windSpeed
+                + "\n- vlhkost vzduchu - " + this.humidity
+                + "\n- úhrn srážek - " + this.precipitation;
     }
-
 }

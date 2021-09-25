@@ -17,6 +17,9 @@ public class Main {
         System.out.println(weather.getAverageTemperature());
         System.out.println(weather.getMaxTemperature());
         System.out.println(weather.getMinTemperature());
+        System.out.println(weather.getWindInfo());
+        System.out.println(weather.getSummaryPrecipitationInDecades());
+        System.out.println(weather.graph());
 
         
 //        System.out.println(weather.getAllDayInfo());

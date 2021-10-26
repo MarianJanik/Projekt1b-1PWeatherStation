@@ -4,13 +4,16 @@ import java.io.FileNotFoundException;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         final String FILE1="B2BTUR01_07_2019.csv";
 
-        WeatherForALongerPeriod weather;
+        WeatherForALongerPeriod weather = null;
 
-
-        weather = WeatherForALongerPeriod.importFromTextFile(FILE1);
+        try {
+            weather = WeatherForALongerPeriod.importFromTextFile(FILE1);
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        }
 
         System.out.println(weather.getStandardGreeting());
         System.out.println(weather.getSize());
@@ -23,7 +26,6 @@ public class Main {
 
         
 //        System.out.println(weather.getAllDayInfo());
-
 
     }
 }

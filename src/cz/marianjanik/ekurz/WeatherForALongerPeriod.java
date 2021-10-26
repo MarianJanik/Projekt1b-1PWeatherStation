@@ -38,6 +38,8 @@ public class WeatherForALongerPeriod {
                 summary.add(oneDay);
             }
             return summary;
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("Soubor pro načtení \"" + fileName + "\" nebyl nalezen.");
         }
     }
 

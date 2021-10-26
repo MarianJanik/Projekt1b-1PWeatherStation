@@ -29,12 +29,12 @@ public class WeatherForALongerPeriod {
             while (scanner.hasNextLine()) {
                 String inputLine = scanner.nextLine();
                 String[] items = inputLine.split(",");
-                int year = Integer.valueOf(items[0]);
-                int month = Integer.valueOf(items[1]);
-                int day = Integer.valueOf(items[2]);
-                WeatherOneDay oneDay = new WeatherOneDay(LocalDate.of(year, month, day), Double.valueOf(items[3]),
-                        Double.valueOf(items[4]), Double.valueOf(items[5]), Double.valueOf(items[6]),
-                        Double.valueOf(items[7]), Double.valueOf(items[8]), Double.valueOf(items[9]));
+                int year = Integer.parseInt(items[0]);
+                int month = Integer.parseInt(items[1]);
+                int day = Integer.parseInt(items[2]);
+                WeatherOneDay oneDay = new WeatherOneDay(LocalDate.of(year, month, day), Double.parseDouble(items[3]),
+                        Double.parseDouble(items[4]), Double.parseDouble(items[5]), Double.parseDouble(items[6]),
+                        Double.parseDouble(items[7]), Double.parseDouble(items[8]), Double.parseDouble(items[9]));
                 summary.add(oneDay);
             }
             return summary;
@@ -49,22 +49,19 @@ public class WeatherForALongerPeriod {
             sum+=weatherOneDay.getAverageTemperature();
         }
         double average = sum / oneDayArrayList.size();
-        String text = "Average temperature for the reporting period: " + myFormat.format(average) + "°C";
-        return text;
+        return "Average temperature for the reporting period: " + myFormat.format(average) + "°C";
     }
 
     public String getMinTemperature() {
         WeatherOneDay minimumDay = Collections.min(oneDayArrayList,new TemperatureMinComparator());
-        String text = "Minimum temperature for the reporting period: " + minimumDay.getDate() + " was "
+        return "Minimum temperature for the reporting period: " + minimumDay.getDate() + " was "
                 + myFormat.format(minimumDay.getMinimumTemperature()) +"°C";
-        return text;
     }
 
     public String getMaxTemperature() {
         WeatherOneDay maximumDay = Collections.min(oneDayArrayList,new TemperatureMaxComparator());
-        String text = "Maximum temperature for the reporting period: " + maximumDay.getDate() + " was "
+        return "Maximum temperature for the reporting period: " + maximumDay.getDate() + " was "
                 + myFormat.format(maximumDay.getMaximumTemperature()) +"°C";
-        return text;
     }
 
     public String getWindInfo() {
@@ -74,9 +71,8 @@ public class WeatherForALongerPeriod {
             if (oneDay.getWindSpeed()>=4.2) bigWind += 1;
             if (oneDay.getWindSpeed()<=1.8) withoutWind += 1;
         }
-        String text = "Number of windy days: " + bigWind
+        return "Number of windy days: " + bigWind
                 + "\nNumber of calm days: " + withoutWind;
-        return text;
     }
 
     public String getSummaryPrecipitationInDecades() {
@@ -93,9 +89,8 @@ public class WeatherForALongerPeriod {
                 thirdDecade += oneDay.getPrecipitation();
             }
         }
-        String text = "Precipitation summary in month decades: " + myFormat.format(firstDecade) + "mm - "
+        return "Precipitation summary in month decades: " + myFormat.format(firstDecade) + "mm - "
                 + myFormat.format(secondDecade) + "mm - " + myFormat.format(thirdDecade) + "mm" + getLine();
-        return text;
     }
 
     public String getAllDayInfo() {
@@ -141,8 +136,7 @@ public class WeatherForALongerPeriod {
     }
 
     public String getSize() {
-        String text = getLine() + "\nWe have " + oneDayArrayList.size() + " meteorological daily records to analyze.";
-        return text;
+        return getLine() + "\nWe have " + oneDayArrayList.size() + " meteorological daily records to analyze.";
     }
 
     private String getLine(){

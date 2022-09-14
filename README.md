@@ -3,8 +3,8 @@
 - nebyl zadán v normálním čase a všiml jsem si ho, když jsem studoval materiály po kurzu,
 - projekt byl vypracován bez problémů.
 
-#VOLITELNÝ PROJEKT NAVÍC: METEOSTANICE
-##Zadání projektu
+# VOLITELNÝ PROJEKT NAVÍC: METEOSTANICE
+## Zadání projektu
 Nastal čas, abychom si ověřili rozsah tvých nově nabytých znalostí v oblasti základů programování v Javě. A to se vždy nejlépe pozná na reálném problému, před který je člověk postaven.
 
 V rámci tohoto projektu vytvoříš aplikaci, která bude statisticky vyhodnocovat meteorologická data sbíraná a poskytovaná Českým hydrometeorologickým ústavem.
@@ -15,15 +15,16 @@ Jedná se o data sebraná meteorologickou stanicí Brno - Tuřany (B2BTUR01) v �
 
 Struktura jednoho záznamu je následující (oddělovačem každé položky je čárka):
 ````
-<rok>,<měsíc>,<den>,<průměrná teplota>,<maximální teplota>,<minimální teplota>,<atmosférický tlak>,<rychlost větru>,<vlhkost vzduchu>,<úhrn srážek>
+<rok>,<měsíc>,<den>,<průměrná teplota>,<maximální teplota>,<minimální teplota>,<atmosférický tlak>,<rychlost větru>,
+<vlhkost vzduchu>,<úhrn srážek>
 ````
-###Tvůj program by měl provést následující kroky:
-1.	Přivítat uživatele výpisem na standardní výstup:
+### Tvůj program by měl provést následující kroky:
+#### 1.	Přivítat uživatele výpisem na standardní výstup:
 ````
 --------------------------------------------------------------------------------
 Welcome to the application for Meteorological Data Analysis.
 ````
-2.	Vypsat na standardní výstup sadu statistických údajů v následujícím rozsahu:
+#### 2.	Vypsat na standardní výstup sadu statistických údajů v následujícím rozsahu:
 - celkový počet denních záznamů, které se budou vyhodnocovat
 - průměrnou denní teplotu za sledované období
 - maximální teplotu za sledované období s tím, že uvedete maximální teplotu a den, ve kterém bylo toto maximum zjištěno
@@ -45,7 +46,8 @@ Precipitation summary in month decades: 19.6mm - 28.5mm - 12.6mm
 --------------------------------------------------------------------------------
 ````
 Všechny vypočtené hodnoty uvádějte v přesnosti na jedno desetinné místo včetně odpovídajících jednotek.
-3.	Vypsat na standardní výstup graf rozložení denních teplot.
+
+#### 3.	Vypsat na standardní výstup graf rozložení denních teplot.
 
 Jedná se nám o graf, ve kterém:
 - jednotlivé řádky budou zobrazovat kalendářní dny
@@ -90,7 +92,7 @@ Očekávaný výstup je následující:
    | 00--------10--------20--------30--------40
 --------------------------------------------------------------------------------
 ````
-##Některá doporučení a rady
+## Některá doporučení a rady
 Je nám jasné, že každé začátky jsou těžké. To nesporně platí také pro začátky programování v Javě. Proto ti doporučujeme ke zvážení následující rady:
 - Při své práci vyjdi ze šablony projektu (odkaz ke stažení je uveden výše).
 - Pro načtení naměřených dat můžeš použít třídu Scanner.
